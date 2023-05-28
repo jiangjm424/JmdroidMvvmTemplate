@@ -1,0 +1,27 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>io.github.jiangjm424.template</id>
+    <name>JmdroidMvvmTemplate</name>
+    <vendor>Jmdroid</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="io.github.jiangjm424.template.toolwindow.MyToolWindowFactory"
+            id="MyToolWindow" />
+    </extensions>
+
+    <applicationListeners>
+        <listener class="io.github.jiangjm424.template.listeners.MyFrameStateListener"
+            topic="com.intellij.ide.FrameStateListener" />
+    </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="other.JmdroidMvvmTemplateImpl" />
+    </extensions>
+</idea-plugin>
